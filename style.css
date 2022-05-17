@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crete+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    position: relative;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.navbar .container {
+    height: 100%;
+}
+
+.navbar {
+    width: 100%;
+    height: 80px;
+    background-color: rgb(30, 8, 153);
+    color: #fff;
+    font-family: 'Play', sans-serif;
+}
+
+.navbar-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+}
+
+.navbar-wrapper .logo {
+    font-size: 30px;
+}
+
+.navbar-wrapper input {
+    padding: 7px 10px;
+    width: 300px;
+    border: none;
+    outline: none;
+}
+
+.navbar-wrapper button {
+    padding: 7px;
+    border: none;
+    background-color: #fff;
+}
+
+.navbar-wrapper button i {
+    transition: all .5s;
+}
+
+.navbar-wrapper button:hover i {
+    transform: scale(1.4);
+}
+
+
+.news-section {
+    transition: all .2s;
+}
+
+.news-section .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 100px 0;
+
+}
+
+.news-section.active {
+    opacity: 0.1;
+}
+
+.news-section .grid-container .grid-item {
+    width: 100%;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Crete Round', serif;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.news-section .grid-container .grid-item .news-image {
+    width: 100%;
+    height: 60%;
+    overflow: hidden;
+}
+
+.news-section .grid-container .grid-item .news-image img {
+    width: 100%;
+    height: 100%;
+    transition: all .5s;
+}
+
+.news-section .grid-container .grid-item p {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.news-section .grid-container .grid-item:hover .news-image img {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+
+.modal {
+    position: fixed;
+    top: 15%;
+    left: 15%;
+    width: 70%;
+    height: 80%;
+    background-color: rgba(255, 255, 255, 0.99);
+    display: none;
+    border: 1px solid rgb(155, 155, 155);
+}
+
+
+
+.modal.active {
+    display: flex;
+    flex-direction: row;
+}
+
+.modal .news-image {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal .news-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal .news-text {
+    position: relative;
+    width: 50%;
+    padding: 20px 8px;
+    font-family: 'Quicksand', sans-serif;
+
+}
+
+.modal .news-text .news-description {
+    margin-top: 30px;
+}
+
+.modal .news-text .buttons {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.modal .news-text .buttons .btn {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #fff;
+    border: 1px solid rgb(209, 204, 204);
+    font-weight: 600;
+    transition: all .5s;
+}
+
+.modal .news-text .buttons .btn:hover {
+    background-color: rgb(30, 8, 153);
+    color: #fff;
+}
+
+.modal .fa.fa-times {
+    float: right;
+    padding: 10px;
+}
+
+@media screen and (max-width:900px) {
+    .container {
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .navbar-wrapper input {
+        width: 250px;
+    }
+}
+
+
+@media screen and (max-width:550px) {
+    .navbar-wrapper {
+        flex-wrap: wrap;
+    }
+
+    .navbar-wrapper .search-group {
+        order: 3;
+        width: 100%;
+    }
+
+    .navbar-wrapper input {
+        width: 90%;
+    }
+
+    .modal {
+        top: 10%;
+        left: 5%;
+        width: 90%;
+        height: 85%
+    }
+
+    .modal.active {
+        flex-direction: column;
+    }
+
+
+    .modal .news-image {
+        width: 100%;
+        height: 50%;
+        object-fit: cover;
+    }
+
+    .modal .news-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .modal .news-text {
+        position: relative;
+        width: 100%;
+        height: 50%;
+        padding: 10px 8px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+
+    }
+
+    .modal .news-text .news-description {
+        margin-top: 30px;
+    }
+
+    .modal .news-text .buttons {
+        position: relative;
+        bottom: 0;
+        padding: 10px 0;
+    }
+}
